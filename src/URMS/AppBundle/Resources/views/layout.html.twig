@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+{% block sidebar %}
+{% endblock %}
+
+{% block body %}
+    {{ block('fos_user_content') }}
+{% endblock %}
+
+{% block log_in_out %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+    {% else %}
+    <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+    {% endif %}
+{% endblock %}

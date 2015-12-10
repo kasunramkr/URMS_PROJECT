@@ -1,0 +1,4 @@
+services:
+#    urms_app.example:
+#        class: URMS\AppBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
