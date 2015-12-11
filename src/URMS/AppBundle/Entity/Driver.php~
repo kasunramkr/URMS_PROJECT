@@ -1,0 +1,47 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Driver
+ *
+ * @ORM\Table(name="driver")
+ * @ORM\Entity
+ */
+class Driver
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NIC_No", type="string", length=10, nullable=false)
+     */
+    private $nicNo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Contact_No", type="integer", nullable=true)
+     */
+    private $contactNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Driver_Id", type="string", length=10)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $driverId;
+
+
+}
+

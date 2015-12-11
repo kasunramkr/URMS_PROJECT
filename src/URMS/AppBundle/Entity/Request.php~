@@ -1,0 +1,61 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Request
+ *
+ * @ORM\Table(name="request")
+ * @ORM\Entity
+ */
+class Request
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Is_Admin_Accept", type="boolean", nullable=false)
+     */
+    private $isAdminAccept;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Resource_Id", type="string", length=45, nullable=false)
+     */
+    private $resourceId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Start_Time", type="time", nullable=true)
+     */
+    private $startTime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="End_Time", type="time", nullable=true)
+     */
+    private $endTime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Module_Id", type="string", length=20, nullable=true)
+     */
+    private $moduleId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Request_Id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $requestId;
+
+
+}
+

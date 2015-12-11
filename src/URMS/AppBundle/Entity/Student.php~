@@ -1,0 +1,57 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Student
+ *
+ * @ORM\Table(name="student", indexes={@ORM\Index(name="Student_Id", columns={"Student_Id"})})
+ * @ORM\Entity
+ */
+class Student
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=50, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Address", type="string", length=200, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Contact_No", type="integer", nullable=true)
+     */
+    private $contactNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NIC_No", type="string", length=10, nullable=false)
+     */
+    private $nicNo;
+
+    /**
+     * @var \URMS\AppBundle\Entity\Person
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="URMS\AppBundle\Entity\Person")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Student_Id", referencedColumnName="User_Id")
+     * })
+     */
+    private $student;
+
+
+}
+

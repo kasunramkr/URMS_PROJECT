@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\TimeAllocation" table="time_allocation">
+    <indexes>
+      <index name="Allocation_Id" columns="Allocation_Id"/>
+    </indexes>
+    <id name="slotId" type="integer" column="Slot_Id"/>
+    <id name="allocation" association-key="true"/>
+    <one-to-one field="allocation" target-entity="Allocation" fetch="LAZY">
+      <join-columns>
+        <join-column name="Allocation_Id" referenced-column-name="Allocation_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

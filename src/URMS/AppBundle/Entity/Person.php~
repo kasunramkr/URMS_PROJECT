@@ -1,0 +1,47 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Person
+ *
+ * @ORM\Table(name="person")
+ * @ORM\Entity
+ */
+class Person
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Access_Level", type="string", length=45, nullable=true)
+     */
+    private $accessLevel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="User_Id", type="string", length=20)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $userId;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="URMS\AppBundle\Entity\Login", mappedBy="user")
+     */
+    private $access;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->access = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

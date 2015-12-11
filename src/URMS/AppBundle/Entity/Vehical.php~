@@ -1,0 +1,43 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Vehical
+ *
+ * @ORM\Table(name="vehical", indexes={@ORM\Index(name="Vehical_Id", columns={"Vehical_Id"})})
+ * @ORM\Entity
+ */
+class Vehical
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Vehical_Type", type="string", length=45, nullable=false)
+     */
+    private $vehicalType;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Capacity", type="integer", nullable=false)
+     */
+    private $capacity;
+
+    /**
+     * @var \URMS\AppBundle\Entity\Resource
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="URMS\AppBundle\Entity\Resource")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Vehical_Id", referencedColumnName="Resource_Id")
+     * })
+     */
+    private $vehical;
+
+
+}
+

@@ -1,0 +1,62 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Login
+ *
+ * @ORM\Table(name="login")
+ * @ORM\Entity
+ */
+class Login
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="User_Name", type="string", length=45, nullable=true)
+     */
+    private $userName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Pasword", type="string", length=45, nullable=true)
+     */
+    private $pasword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Access_Id", type="string", length=20)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $accessId;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="URMS\AppBundle\Entity\Person", inversedBy="access")
+     * @ORM\JoinTable(name="user_access",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Access_Id", referencedColumnName="Access_Id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="User_Id", referencedColumnName="User_Id")
+     *   }
+     * )
+     */
+    private $user;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

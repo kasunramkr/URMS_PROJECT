@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Login" table="login">
+    <id name="accessId" type="string" column="Access_Id" length="20">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userName" type="string" column="User_Name" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pasword" type="string" column="Pasword" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="user" target-entity="Person" inversed-by="access" fetch="LAZY">
+      <join-table name="user_access">
+        <join-columns>
+          <join-column name="Access_Id" referenced-column-name="Access_Id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="User_Id" referenced-column-name="User_Id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

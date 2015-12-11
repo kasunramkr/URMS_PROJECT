@@ -1,0 +1,38 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ResourceAllocation
+ *
+ * @ORM\Table(name="resource_allocation", indexes={@ORM\Index(name="Request_Id", columns={"Request_Id"}), @ORM\Index(name="Request_Id_2", columns={"Request_Id"})})
+ * @ORM\Entity
+ */
+class ResourceAllocation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Allocation_Id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $allocationId;
+
+    /**
+     * @var \URMS\AppBundle\Entity\Request
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="URMS\AppBundle\Entity\Request")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Request_Id", referencedColumnName="Request_Id")
+     * })
+     */
+    private $request;
+
+
+}
+

@@ -1,0 +1,54 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Journey
+ *
+ * @ORM\Table(name="journey", indexes={@ORM\Index(name="Vehical_Id", columns={"Vehical_Id"})})
+ * @ORM\Entity
+ */
+class Journey
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Vehical_Id", type="string", length=10, nullable=false)
+     */
+    private $vehicalId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Start_Time", type="time", nullable=false)
+     */
+    private $startTime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="End_Time", type="time", nullable=false)
+     */
+    private $endTime;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Capacity", type="integer", nullable=false)
+     */
+    private $capacity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Journey_Id", type="string", length=10)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $journeyId;
+
+
+}
+

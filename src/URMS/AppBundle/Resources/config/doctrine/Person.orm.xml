@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Person" table="person">
+    <id name="userId" type="string" column="User_Id" length="20">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="accessLevel" type="string" column="Access_Level" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="access" target-entity="Login" mapped-by="user" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

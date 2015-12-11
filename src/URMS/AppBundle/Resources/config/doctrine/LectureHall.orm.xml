@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\LectureHall" table="lecture_hall">
+    <indexes>
+      <index name="Hall_No" columns="Hall_No"/>
+      <index name="Hall_No_2" columns="Hall_No"/>
+    </indexes>
+    <id name="hallNo" association-key="true"/>
+    <field name="name" type="string" column="Name" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="capacity" type="integer" column="Capacity" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <one-to-one field="hallNo" target-entity="Resource" fetch="LAZY">
+      <join-columns>
+        <join-column name="Hall_No" referenced-column-name="Resource_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

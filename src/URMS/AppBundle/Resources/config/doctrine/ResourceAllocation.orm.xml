@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\ResourceAllocation" table="resource_allocation">
+    <indexes>
+      <index name="Request_Id" columns="Request_Id"/>
+      <index name="Request_Id_2" columns="Request_Id"/>
+    </indexes>
+    <id name="allocationId" type="integer" column="Allocation_Id"/>
+    <id name="request" association-key="true"/>
+    <one-to-one field="request" target-entity="Request" fetch="LAZY">
+      <join-columns>
+        <join-column name="Request_Id" referenced-column-name="Request_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

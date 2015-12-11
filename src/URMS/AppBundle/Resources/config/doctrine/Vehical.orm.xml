@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Vehical" table="vehical">
+    <indexes>
+      <index name="Vehical_Id" columns="Vehical_Id"/>
+    </indexes>
+    <id name="vehical" association-key="true"/>
+    <field name="vehicalType" type="string" column="Vehical_Type" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="capacity" type="integer" column="Capacity" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <one-to-one field="vehical" target-entity="Resource" fetch="LAZY">
+      <join-columns>
+        <join-column name="Vehical_Id" referenced-column-name="Resource_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

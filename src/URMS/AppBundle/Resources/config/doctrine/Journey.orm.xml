@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Journey" table="journey">
+    <indexes>
+      <index name="Vehical_Id" columns="Vehical_Id"/>
+    </indexes>
+    <id name="journeyId" type="string" column="Journey_Id" length="10">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="vehicalId" type="string" column="Vehical_Id" length="10" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="startTime" type="time" column="Start_Time" nullable="false"/>
+    <field name="endTime" type="time" column="End_Time" nullable="false"/>
+    <field name="capacity" type="integer" column="Capacity" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

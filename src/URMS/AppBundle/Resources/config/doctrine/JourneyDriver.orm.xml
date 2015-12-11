@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\JourneyDriver" table="journey_driver">
+    <indexes>
+      <index name="Journey_Id" columns="Journey_Id"/>
+    </indexes>
+    <id name="journey" association-key="true"/>
+    <field name="driverId" type="string" column="Driver_Id" length="10" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="vehicalNo" type="string" column="Vehical_No" length="10" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <one-to-one field="journey" target-entity="Journey" fetch="LAZY">
+      <join-columns>
+        <join-column name="Journey_Id" referenced-column-name="Journey_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

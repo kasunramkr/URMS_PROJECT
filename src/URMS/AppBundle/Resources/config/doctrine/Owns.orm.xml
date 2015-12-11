@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Owns" table="owns">
+    <indexes>
+      <index name="OwnerShip_Id" columns="OwnerShip_Id"/>
+      <index name="Resource_Id" columns="Resource_Id"/>
+    </indexes>
+    <id name="ownershipId" type="string" column="OwnerShip_Id" length="10"/>
+    <id name="resource" association-key="true"/>
+    <one-to-one field="resource" target-entity="Resource" fetch="LAZY">
+      <join-columns>
+        <join-column name="Resource_Id" referenced-column-name="Resource_Id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

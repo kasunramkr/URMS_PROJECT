@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\TimeSlot" table="time_slot">
+    <id name="slotId" type="integer" column="Slot_Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="timePeriod" type="time" column="Time_Period" nullable="false"/>
+    <field name="day" type="string" column="Day" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

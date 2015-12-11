@@ -1,0 +1,47 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Module
+ *
+ * @ORM\Table(name="module")
+ * @ORM\Entity
+ */
+class Module
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=45, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Coordinator", type="string", length=45, nullable=false)
+     */
+    private $coordinator;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Semester_Batch", type="string", length=45, nullable=false)
+     */
+    private $semesterBatch;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Module_Id", type="string", length=20)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $moduleId;
+
+
+}
+

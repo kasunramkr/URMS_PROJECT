@@ -1,0 +1,47 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Allocation
+ *
+ * @ORM\Table(name="allocation")
+ * @ORM\Entity
+ */
+class Allocation
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Start_Date", type="date", nullable=false)
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="End_Date", type="date", nullable=true)
+     */
+    private $endDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Module_ID", type="string", length=20, nullable=true)
+     */
+    private $moduleId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Allocation_Id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allocationId;
+
+
+}
+

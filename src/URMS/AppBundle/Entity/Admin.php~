@@ -1,0 +1,57 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Admin
+ *
+ * @ORM\Table(name="admin", indexes={@ORM\Index(name="User_Id", columns={"User_Id"})})
+ * @ORM\Entity
+ */
+class Admin
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=50, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Address", type="string", length=200, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Contact_No", type="integer", nullable=true)
+     */
+    private $contactNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NIC_No", type="string", length=10, nullable=false)
+     */
+    private $nicNo;
+
+    /**
+     * @var \URMS\AppBundle\Entity\Person
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="URMS\AppBundle\Entity\Person")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="User_Id", referencedColumnName="User_Id")
+     * })
+     */
+    private $user;
+
+
+}
+

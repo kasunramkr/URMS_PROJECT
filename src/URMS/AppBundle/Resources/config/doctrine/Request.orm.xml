@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="URMS\AppBundle\Entity\Request" table="request">
+    <id name="requestId" type="integer" column="Request_Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="isAdminAccept" type="boolean" column="Is_Admin_Accept" nullable="false"/>
+    <field name="resourceId" type="string" column="Resource_Id" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="startTime" type="time" column="Start_Time" nullable="true"/>
+    <field name="endTime" type="time" column="End_Time" nullable="true"/>
+    <field name="moduleId" type="string" column="Module_Id" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

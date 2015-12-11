@@ -1,0 +1,38 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * VehicalRequest
+ *
+ * @ORM\Table(name="vehical_request", indexes={@ORM\Index(name="Request_Id", columns={"Request_Id"})})
+ * @ORM\Entity
+ */
+class VehicalRequest
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Journey_Id", type="string", length=45)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $journeyId;
+
+    /**
+     * @var \URMS\AppBundle\Entity\Request
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="URMS\AppBundle\Entity\Request")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Request_Id", referencedColumnName="Request_Id")
+     * })
+     */
+    private $request;
+
+
+}
+

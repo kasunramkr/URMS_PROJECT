@@ -1,0 +1,35 @@
+<?php
+
+namespace URMS\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AllocatedFor
+ *
+ * @ORM\Table(name="allocated_for")
+ * @ORM\Entity
+ */
+class AllocatedFor
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Allocation_Id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $allocationId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Module_Id", type="string", length=20)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $moduleId;
+
+
+}
+
